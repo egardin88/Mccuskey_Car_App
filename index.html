@@ -1,0 +1,798 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src *; img-src * data:">
+        
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, shrink-to-fit=no, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <!-- Ion Icons -->
+        <link href="css/ionicons.min.css" rel="stylesheet" />
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+        <title>McCluskey @Home</title>
+
+    </head>
+
+    <body>
+
+        <div id="appContainer" class="fill-screen">
+
+            <!-- Splash Screen Container -->
+            <div id="splashScreen" class="fill-screen home-background">
+
+                <div class="d-flex flex-column" style="height: 50%;">
+
+                    <div class="d-flex justify-content-center align-items-start full-padding-5" style="height: 100%;">
+
+                        <img src="images/mccluskey.png" style="width: 80vw; height: auto;"/>
+
+                    </div>
+
+                </div>
+                
+                <div class="d-flex flex-column" style="height: 50%;">
+
+                    <div class="d-flex justify-content-center align-items-end full-padding-5" style="height: 100%;">
+
+                        <img src="images/at_home.png" style="width: 90vw; height: auto;"/>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Loading -->
+            <div id="loading" class="fill-screen" style="display: none;">
+
+                <div class="fill-screen d-flex flex-column justify-content-center align-items-center loading-background" style="height: 100%;">
+
+                    <div class="d-flex flex-column" style="height: 33.3%;">
+
+                        <div class="d-flex justify-content-center align-items-start full-padding-5" style="height: 100%;">
+
+                            <img src="images/mccluskey.png" style="width: 80vw; height: auto;"/>
+
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex flex-column" style="height: 33.3%;">
+
+                        <div class="d-flex justify-content-center align-items-end full-padding-5 loading-text" style="height: 100%;">
+                            
+                            ...Loading
+
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex flex-column" style="height: 33.3%;">
+
+                        <div class="d-flex justify-content-center align-items-end full-padding-5" style="height: 100%;">
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Main Options Page -->
+            <div id="mainOptions" class="fill-screen" style="display: none;">
+
+                <div class="d-flex flex-column bg-dark-gray m-logo-background background-size-height-90" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center header-text" style="height: 100%;">
+
+                        CHOOSE
+
+                    </div>
+
+                </div>
+
+
+                <div class="d-flex flex-column bg-light-gray m-logo-background background-size-width-90" style="height: 85%;">
+                     
+                    <div id="goToInstructions" class="d-flex justify-content-center align-items-center btn-text" style="height: 47.5%;">
+
+                        INSTRUCTIONS
+
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 5%;">
+
+                        <div class="left-padding-5 right-padding-5" style="width: 45%;">
+                        
+                            <hr />
+                    
+                        </div>
+
+                        <div class="header-text" style="width: 10%;">
+
+                            OR
+
+                        </div>
+
+                        <div class="left-padding-5 right-padding-5" style="width: 45%;">
+
+                            <hr />
+
+                        </div>
+
+                    </div>
+                     
+                    <div id="goToApp" class="d-flex justify-content-center align-items-center btn-text" style="height: 47.5%;">
+
+                        CONTINUE TO APP
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Sub Options Page -->
+            <div id="subOptions" class="fill-screen" style="display: none;">
+
+                <div class="d-flex flex-column bg-dark-gray m-logo-background background-size-height-90" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center header-text" style="height: 100%;">
+
+                        CHOOSE
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-light-gray" style="height: 85%;">
+
+                    <div id="takeImage" class="d-flex justify-content-center align-items-center btn-text hand-and-phone-background" style="height: 47.5%;">
+
+                        TAKE PICTURE
+
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 5%;">
+
+                        <div class="left-padding-5 right-padding-5" style="width: 45%;">
+
+                            <hr />
+
+                        </div>
+
+                        <div class="header-text" style="width: 10%;">
+
+                            OR
+
+                        </div>
+
+                        <div class="left-padding-5 right-padding-5" style="width: 45%;">
+
+                            <hr />
+
+                        </div>
+
+                    </div>
+
+                    <div id="selectImage" class="d-flex justify-content-center align-items-center btn-text phone-camera-roll-background background-size-height-70" style="height: 47.5%;">
+
+                        SELECT FROM CAMERA ROLL
+
+                    </div>
+
+                </div>
+
+                <div id="goBackToMainOptions" class="go-back description-text">BACK</div>
+
+            </div>
+
+            <!-- Container for holding the image taken by the user and the compositable car image -->
+            <div id="imageContainer" class="fill-screen" style="display: none;">
+
+                <img id="waterMark" src="images/m_logo.png" />
+
+                <div id="imageDraggable" class="d-flex justify-content-center align-items-center">
+
+                    <div id="loadingIcon" class="loading" style="display: none;"></div>
+
+                    <img id="compositeImage" src="" />
+
+                </div>
+
+
+                <!-- Container for the image options that get hidden when screenshot is taken -->
+                <div id="imageContainerOptions" class="absolute-bottom bg-dark-gray" style="height: 15%; width: 100%">
+
+                    <div class="vehicle-image-slider d-flex flex-row" style="width: 100%;">
+
+                        <div style="width: 50%;" class="d-flex flex-column justify-content-center align-items-center left-padding-5 right-padding-5">
+
+                            <div class="text-shadow description-text">
+
+                                CONTRAST
+
+                            </div>
+
+                            <input id="contrastSlider" type="range" value="100" min="75" max="125" />
+
+
+                        </div>
+
+                        <div style="width: 50%;" class="d-flex flex-column justify-content-center align-items-center left-padding-5 right-padding-5">
+
+                            <div class="text-shadow description-text">
+
+                                BRIGHTNESS
+
+                            </div>
+
+                            <input id="brightnessSlider" type="range" value="100" min="50" max="150" />
+
+                        </div>
+
+                    </div>
+
+                    <div class="d-flex flex-row" style="height: 100%; width: 100%;">
+
+                        <div class="d-flex justify-content-center align-items-center left-padding-5 right-padding-5" style="height: 100%; width: 50%;">
+
+                            <button id="saveImage" class="standard-button description-text">SAVE</button>
+
+                        </div>
+
+                        <div class="d-flex justify-content-center align-items-center left-padding-5 right-padding-5" style="height: 100%; width: 50%;">
+
+                            <button id="goToSelection" class="standard-button description-text">BROWSE</button>
+
+                        </div>
+
+                    </div>
+
+                    <i id="rotateLeft" class="icon ion-chevron-left rotate-arrow-left"></i>
+
+                    <i id="rotateRight" class="icon ion-chevron-right rotate-arrow-right"></i>
+
+                    <!-- The back button is here so that it gets hidden with the rest when the screenshot is taken -->
+                    <div id="goBackToSubOptions" class="go-back description-text">BACK</div>
+
+                </div>
+
+                <img id="screenShot" src="" />
+
+                <!-- Container for the options that show up after the screenshot-->
+                <div id="afterScreenShotOptions" class="absolute-bottom bg-dark-gray" style="height: 15%; width: 100%; display: none;">
+                    
+                    <div class="d-flex flex-row" style="height: 100%; width: 100%;">
+
+                        <div class="d-flex justify-content-center align-items-center left-padding-5 right-padding-5" style="height: 100%; width: 50%;">
+
+                            <button id="scheduleTestDrive" class="standard-button description-text">Schedule Test Drive</button>
+                        
+                        </div>
+
+                        <div class="d-flex justify-content-center align-items-center left-padding-5 right-padding-5" style="height: 100%; width: 50%;">
+
+                            <button id="clickToCall" class="standard-button description-text">Click to Call</button>
+
+                        </div>
+
+                    </div>
+
+                    <!-- The back button is here so that it gets hidden with the rest when the screenshot is taken -->
+                    <div id="reset" class="go-back description-text">RESET</div>
+
+                </div>
+
+            </div>
+
+            <!-- Image saved alert -->
+            <div id="imageSavedAlert" class="image-saved-alert" style="display: none;">
+
+                <div class="image-saved-text">
+                        
+                    IMAGE SAVED!
+                    
+                </div>
+
+                <!--<div id="imagedSavedOkSelect" class="ok-text">
+                    
+                    OK
+                    
+                </div>-->
+
+            </div>
+
+            <!-- Container for holding the vehicles retrieved from database -->
+            <div id="browseSelection" class="fill-screen" style="display: none;">
+
+                <!-- The actual container for the vehicle HTML retrived from the PHP script -->
+                <div id="vehiclesContainer" class="d-flex flex-wrap align-items-center bg-light-gray" style="height: 85%;">
+                    
+                </div>
+
+                <div class="d-flex flex-column bg-dark-gray" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center header-text" style="height: 100%;">
+
+                        <div class="col">
+
+                            <div class="input-group">
+
+                                <input id="searchText" type="text" class="form-control" placeholder="Search">
+
+                                <span class="input-group-btn">
+
+                                    <button id="searchSend" class="btn bg-light-gray" type="button"><i class="icon ion-search"></i></button>
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="goBackToImageContainer" class="go-back description-text">BACK</div>
+
+            </div>
+
+            <!-- Instructions Main Page-->
+            <div id="instructionsMain" class="fill-screen" style="display: none;">
+
+                <div class="d-flex flex-column bg-dark-gray m-logo-background background-size-height-90" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center header-text" style="height: 100%;">
+                        
+                        INSTRUCTIONS
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex bg-light-gray home-background-instructions" style="height: 70%;">
+
+                    <div class="d-flex justify-content-start align-items-center left-padding-5" style="height: 100%; width: 50%;">
+
+                    </div>
+
+                    <div class="d-flex justify-content-end align-items-center right-padding-5" style="height: 100%; width: 50%">
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-dark-gray" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center right-padding-10 left-padding-10 description-text" style="height: 100%;">
+
+                        Decide where you'd like to see your new vehicle.
+
+                    </div>
+
+                </div>
+
+                <i id="goToInstructionsChoose" class="icon ion-chevron-right directional-arrow-right"></i>
+
+            </div>
+
+            <!-- Instructions Choose Page -->
+            <div id="instructionsChoose" class="fill-screen" style="display: none;">
+
+                <div class="d-flex flex-column bg-dark-gray m-logo-background background-size-height-90" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center header-text" style="height: 100%;">
+
+                        CHOOSE
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-light-gray" style="height: 70%;">
+
+                    <div id="goToInstructionsLineUp" class="d-flex justify-content-center align-items-center btn-text hand-and-phone-background" style="height: 47.5%;">
+
+                        TAKE PICTURE
+
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 5%;">
+
+                        <div class="left-padding-5 right-padding-5" style="width: 45%;">
+
+                            <hr />
+
+                        </div>
+
+                        <div class="header-text" style="width: 10%;">
+
+                            OR
+
+                        </div>
+
+                        <div class="left-padding-5 right-padding-5" style="width: 45%;">
+
+                            <hr />
+
+                        </div>
+
+                    </div>
+
+                    <div id="goToInstructionsSelectPhoto" class="d-flex justify-content-center align-items-center btn-text phone-camera-roll-background background-size-height-70" style="height: 47.5%;">
+
+                        SELECT FROM CAMERA ROLL
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-dark-gray" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center right-padding-10 left-padding-10 description-text" style="height: 100%;">
+
+                        Decide if you'd like to take a new picture or select an existing picture from your camera roll.
+
+                    </div>
+
+                </div>
+
+                <i id="goBackToInstructionsMain" class="icon ion-chevron-left directional-arrow-left"></i>
+
+            </div>
+
+            <!-- Instructions Line Up Camera Page -->
+            <div id="instructionsLineUp" class="fill-screen" style="display: none;">
+
+                <div class="d-flex flex-column bg-dark-gray m-logo-background background-size-height-90" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center header-text" style="height: 100%;">
+
+                        LINE UP CAMERA
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-light-gray line-up-background" style="height: 70%;">
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 50%;">
+
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 50%;">
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-dark-gray" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center right-padding-10 left-padding-10 description-text" style="height: 100%;">
+
+                        Position camera so the driveway or area where you'd like to see the vehicle is clearly visible.
+
+                    </div>
+
+                </div>
+
+                <i id="goBackToInstructionsChoose1" class="icon ion-chevron-left directional-arrow-left"></i>
+
+                <i id="goToInstructionsOrientation" class="icon ion-chevron-right directional-arrow-right"></i>
+
+            </div>
+
+            <!-- Instructions Orientation Page -->
+            <div id="instructionsOrientation" class="fill-screen" style="display: none;">
+
+                <div class="d-flex flex-column bg-dark-gray m-logo-background background-size-height-90" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center header-text" style="height: 100%;">
+
+                        ORIENTATION
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-light-gray home-blur-background" style="height: 70%;">
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 50%;">
+
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 50%;">
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-dark-gray" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center right-padding-10 left-padding-10 description-text" style="height: 100%;">
+
+                        Horizontal or vertical orientation will work.
+
+                    </div>
+
+                </div>
+
+                <img id="orientationPhoneImage" src="css/css-images/hand_and_phone_black.png" />
+
+                <i id="goBackToinstructionsLineUp" class="icon ion-chevron-left directional-arrow-left"></i>
+
+                <i id="goToInstructionsTakenPhoto" class="icon ion-chevron-right directional-arrow-right"></i>
+
+            </div>
+
+            <!-- Instructions Taken Photo Page -->
+            <div id="instructionsTakenPhoto" class="fill-screen" style="display: none;">
+
+                <div class="d-flex flex-column bg-dark-gray m-logo-background background-size-height-90" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center header-text" style="height: 100%;">
+
+                        TAKEN PHOTO
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-light-gray home-background-instructions" style="height: 70%;">
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 50%;">
+
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 50%;">
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-dark-gray" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center right-padding-10 left-padding-10 description-text" style="height: 100%;">
+
+                        Preview the photo to make sure the image was captured correctly.
+
+                    </div>
+
+                </div>
+
+                <i id="goBackToInstructionsOrientation" class="icon ion-chevron-left directional-arrow-left"></i>
+
+                <i id="goToInstructionsSelectVehicle" class="icon ion-chevron-right directional-arrow-right"></i>
+
+            </div>
+
+            <!-- Instructions Select Vehicle Page -->
+            <div id="instructionsSelectVehicle" class="fill-screen" style="display: none;">
+
+                <div class="d-flex flex-column bg-dark-gray m-logo-background background-size-height-90" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center header-text" style="height: 100%;">
+
+                        SELECT VEHICLE
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-dark-gray select-vehicle-background background-size-width-90" style="height: 70%;">
+
+                </div>
+
+                <div class="d-flex flex-column bg-dark-gray" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center right-padding-10 left-padding-10 description-text" style="height: 100%;">
+
+                        Browse through our selection and choose your next new vehicle.
+
+                    </div>
+
+                </div>
+
+                <i id="goBackToInstructionsTakenPhoto" class="icon ion-chevron-left directional-arrow-left"></i>
+
+                <i id="goToInstructionsPlaceVehicle" class="icon ion-chevron-right directional-arrow-right"></i>
+
+            </div>
+
+            <!-- Instructions Place Vehicle Page -->
+            <div id="instructionsPlaceVehicle" class="fill-screen" style="display: none;">
+
+                <div class="d-flex flex-column bg-dark-gray m-logo-background background-size-height-90" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center header-text" style="height: 100%;">
+
+                        PLACE VEHICLE
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-light-gray home-camaro-background" style="height: 70%;">
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 35%;">
+
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 65%;">
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-dark-gray" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center right-padding-10 left-padding-10 description-text" style="height: 100%; width: 100%;">
+                        
+                        Move, zoom, rotate and scale your selection to match the perspective of the image.
+
+                    </div>
+
+                </div>
+
+                <img id="touchControlsImage" src="css/css-images/touch_controls.png" />
+
+                <i id="goBackToInstructionsSelectVehicle" class="icon ion-chevron-left directional-arrow-left"></i>
+
+                <i id="goToInstructionsShare" class="icon ion-chevron-right directional-arrow-right"></i>
+
+            </div>
+
+            <!-- Instructions Save And Share Page -->
+            <div id="instructionsShare" class="fill-screen" style="display: none;">
+
+                <div class="d-flex flex-column bg-dark-gray m-logo-background background-size-height-90" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center header-text" style="height: 100%;">
+
+                        SHARE
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-light-gray home-camaro-background" style="height: 70%;">
+
+                    <div class="image-saved-alert">
+
+                        <div class="image-saved-text">
+
+                            IMAGE SAVED!
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-dark-gray" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center right-padding-10 left-padding-10 description-text" style="height: 100%;">
+
+                        Save and share your completed image.
+
+                    </div>
+
+                </div>
+
+                <i id="goBackToInstructionsPlaceVehicle" class="icon ion-chevron-left directional-arrow-left"></i>
+
+            </div>
+
+            <!-- Instructions Select Photo Page -->
+            <div id="instructionsSelectPhoto" class="fill-screen" style="display: none;">
+
+                <div class="d-flex flex-column bg-dark-gray m-logo-background background-size-height-90" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center header-text" style="height: 100%;">
+
+                        SELECT PHOTO
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-light-gray phone-camera-roll-no-o-background background-size-height-90" style="height: 70%;">
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 50%;">
+
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 50%;">
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-dark-gray" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center right-padding-10 left-padding-10 description-text" style="height: 100%;">
+
+                        Choose the best photo from your camera roll for your new vehicle.
+
+                    </div>
+
+                </div>
+
+                <i id="goBackToInstructionsChoose2" class="icon ion-chevron-left directional-arrow-left"></i>
+
+                <i id="goToInstructionsPhotoChoice" class="icon ion-chevron-right directional-arrow-right"></i>
+
+            </div>
+
+            <!-- Instructions Photo Choice Page -->
+            <div id="instructionsPhotoChoice" class="fill-screen" style="display: none;">
+
+                <div class="d-flex flex-column bg-dark-gray m-logo-background background-size-height-90" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center header-text" style="height: 100%;">
+
+                        PHOTO CHOICE
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-light-gray home-background-instructions" style="height: 70%;">
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 50%;">
+
+                    </div>
+
+                    <div class="d-flex justify-content-center align-items-center" style="height: 50%;">
+
+                    </div>
+
+                </div>
+
+                <div class="d-flex flex-column bg-dark-gray" style="height: 15%;">
+
+                    <div class="d-flex justify-content-center align-items-center right-padding-10 left-padding-10 description-text" style="height: 100%;">
+
+                        Review your selected photo.
+
+                    </div>
+
+                </div>
+
+                <i id="goBackToInstructionsSelectPhoto" class="icon ion-chevron-left directional-arrow-left"></i>
+
+            </div>
+
+            <!-- Instructions skip back to main menu button -->
+            <div id="skip" class="go-back description-text" style="display: none;">SKIP</div>
+
+        </div>
+
+        <script src="scripts/lib/jquery.min.js"></script>
+        <script src="scripts/lib/interact.min.js"></script>
+        <script src="scripts/lib/bootstrap.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+
+        <!-- Custom JS -->
+        <script src="scripts/app.js"></script>
+    </body>
+</html>
